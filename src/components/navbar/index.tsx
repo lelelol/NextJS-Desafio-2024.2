@@ -1,6 +1,6 @@
 export default function Navbar() {
     return (
-      <div className="flex justify-center items-center h-12 bg-cinza w-screen">
+      <div className="flex justify-center items-center h-12 bg-cinza">
         <div className="flex items-center justify-end space-x-5 w-full">
           <a>Produtos</a>
           <a>Contato</a>

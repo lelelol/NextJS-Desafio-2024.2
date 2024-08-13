@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
+const OpenSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "next reading",

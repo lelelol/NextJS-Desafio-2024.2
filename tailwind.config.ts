@@ -32,10 +32,10 @@ const config: Config = {
     plugin(function ({ addComponents }) {
       addComponents({
         ".paginacao .splide__pagination__page": {
-          backgroundColor: "#0000ff",
+          backgroundColor: "#666666",
         },
         ".paginacao .splide__pagination__page.is-active": {
-          backgroundColor: "#0000ff",
+          backgroundColor: "#0a0a0a",
         },
       });
     }),

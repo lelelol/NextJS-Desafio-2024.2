@@ -1,7 +1,7 @@
 export default function Generos() {
   return (
     <div>
-      <div className="pl-6 mt-10 mb-4">
+      <div className="pl-6 mt-10 mb-4 m-[2%]">
         <h1 className="font-semibold text-2xl mb-0">
           Embarque a sua próxima aventura
         </h1>
@@ -14,20 +14,6 @@ export default function Generos() {
           <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-xl">Gênero</a>
           </div>
-          <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-xl">Gênero</a>
-          </div>
-          <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-xl">Gênero</a>
-          </div>
-          <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-xl">Gênero</a>
-          </div>
-          <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-xl">Gênero</a>
-          </div>
-        </div>
-        <div className="flex justify-center gap-14 m-4">
           <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-xl">Gênero</a>
           </div>

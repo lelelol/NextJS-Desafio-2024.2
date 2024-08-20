@@ -1,24 +1,33 @@
 import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import { MutableRefObject } from "react";
+import { MutableRefObject, useRef } from "react";
 import Image from "next/image";
 import Produto from "../Produto";
-import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
+import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 
 interface CarrosselProps {
   divMaeRef: MutableRefObject<HTMLDivElement | null>;
 }
 
 export default function Carrossel({ divMaeRef }: CarrosselProps) {
+  const paginacaoRef = useRef<HTMLDivElement>(null);
   return (
     <Splide
-      options={{ type: "loop", pagination: true, autoplay: true, interval: 5000, pauseOnHover: true }}
+      options={{
+        type: "loop",
+        pagination: true,
+        autoplay: true,
+        interval: 5000,
+        pauseOnHover: true,
+      }}
       hasTrack={false}
       className="max-w-[800px] paginacao"
       onMove={(slide) => {
         const divMae = divMaeRef.current;
         if (divMae) {
-          // Alterar a cor de fundo com base no índice do slide
-          divMae.className = slide.index % 2 === 0 ? " flex justify-center bg-[linear-gradient(0deg,_#FFF_20%,_#42f557_100%)]" : " flex justify-center bg-degrade";
+          divMae.className =
+            slide.index % 2 === 0
+              ? " flex justify-center bg-[linear-gradient(0deg,_#FFF_20%,_#42f557_100%)]"
+              : " flex justify-center bg-degrade";
         }
       }}
     >
@@ -79,7 +88,7 @@ export default function Carrossel({ divMaeRef }: CarrosselProps) {
           <ArrowForwardIos />
         </button>
         <div className="splide__progress">
-          <div className="splide__progress__bar " />
+          <div className="splide__progress__bar" />
         </div>
         <button className="splide__arrow--next bg-cinza bg-opacity-45 rounded-3xl p-4 mt-3">
           <ArrowForwardIos />

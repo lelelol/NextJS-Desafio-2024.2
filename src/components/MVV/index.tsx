@@ -26,8 +26,9 @@ export default function MVV() {
   });
 
   return (
-    <div className="flex gap-10">
+    <div className="flex justify-center m-10 gap-[10%]">
       {cards.map((card) => (
+        // eslint-disable-next-line react/jsx-key
         <Card id={card.id} title={card.title} text={card.text} />
       ))}
     </div>

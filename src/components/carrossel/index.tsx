@@ -1,17 +1,26 @@
-"use client";
-
+import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
+import { MutableRefObject } from "react";
 import Image from "next/image";
 import Produto from "../Produto";
-import "@splidejs/splide/css";
-import { Splide, SplideSlide, SplideTrack } from "@splidejs/react-splide";
-import React from "react";
+import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 
-export default function Carrossel() {
+interface CarrosselProps {
+  divMaeRef: MutableRefObject<HTMLDivElement | null>;
+}
+
+export default function Carrossel({ divMaeRef }: CarrosselProps) {
   return (
     <Splide
-      options={{ type: "loop", pagination: true }}
+      options={{ type: "loop", pagination: true, autoplay: true, interval: 5000, pauseOnHover: true }}
       hasTrack={false}
-      className="max-w-[800px]"
+      className="max-w-[800px] paginacao"
+      onMove={(slide) => {
+        const divMae = divMaeRef.current;
+        if (divMae) {
+          // Alterar a cor de fundo com base no índice do slide
+          divMae.className = slide.index % 2 === 0 ? " flex justify-center bg-[linear-gradient(0deg,_#FFF_20%,_#42f557_100%)]" : " flex justify-center bg-degrade";
+        }
+      }}
     >
       <SplideTrack>
         <SplideSlide>
@@ -65,15 +74,15 @@ export default function Carrossel() {
           </div>
         </SplideSlide>
       </SplideTrack>
-      <div className="splide__arrows flex justify-around">
+      <div className="splide__arrows flex justify-center gap-40">
         <button className="splide__arrow--prev bg-cinza bg-opacity-45 rounded-3xl p-4 mt-3">
-          Ant
+          <ArrowForwardIos />
         </button>
         <div className="splide__progress">
-          <div className="splide__progress__bar" />
+          <div className="splide__progress__bar " />
         </div>
         <button className="splide__arrow--next bg-cinza bg-opacity-45 rounded-3xl p-4 mt-3">
-          Prox
+          <ArrowForwardIos />
         </button>
       </div>
     </Splide>

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
@@ -12,17 +13,33 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        'degrade': 'linear-gradient(0deg, #FFF 20%, #81ADEF 100%)',
+        "degrade": "linear-gradient(0deg, #FFF 20%, #81ADEF 100%)",
       },
       colors: {
-        cinza: '#E7E7E7',
-        cinzatxt: '#737373',
+        cinza: "#E7E7E7",
+        cinzatxt: "#737373",
       },
-      screens:{
-        'md':'768px', 'lg':'1280px','xl':'1920px','2xl':'2560px','3xl':'3440px'
-      }
+      screens: {
+        md: "768px",
+        lg: "1280px",
+        xl: "1920px",
+        "2xl": "2560px",
+        "3xl": "3440px",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addComponents }) {
+      addComponents({
+        ".paginacao .splide__pagination__page": {
+          backgroundColor: "#0000ff",
+        },
+        ".paginacao .splide__pagination__page.is-active": {
+          backgroundColor: "#0000ff",
+        },
+      });
+    }),
+  ],
 };
+
 export default config;

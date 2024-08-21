@@ -3,10 +3,11 @@ import Image from "next/image";
 import Script from "next/script";
 import React, { useEffect } from "react";
 import Produto from "../Produto";
-interface ProdutoProps {
+
+type ProdutoProps = {
   filtro: string;
   indice: string;
-}
+};
 
 export default function ListaProdutos({ filtro, indice }: ProdutoProps) {
   useEffect(() => {

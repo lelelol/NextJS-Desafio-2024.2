@@ -18,6 +18,7 @@ const config: Config = {
       colors: {
         cinza: "#E7E7E7",
         cinzatxt: "#737373",
+        customRed: '#a83242',
       },
       screens: {
         md: "768px",

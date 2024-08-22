@@ -3,6 +3,7 @@ import { MutableRefObject, useRef } from "react";
 import Image from "next/image";
 import Produto from "../Produto";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
+import useCor from "@/cookies/cookie";
 
 interface CarrosselProps {
   divMaeRef: MutableRefObject<HTMLDivElement | null>;
@@ -10,6 +11,8 @@ interface CarrosselProps {
 
 export default function Carrossel({ divMaeRef }: CarrosselProps) {
   const paginacaoRef = useRef<HTMLDivElement>(null);
+  const { cor, toggleCor } = useCor();
+
   return (
     <Splide
       options={{
@@ -23,11 +26,12 @@ export default function Carrossel({ divMaeRef }: CarrosselProps) {
       className="max-w-[800px] paginacao"
       onMove={(slide) => {
         const divMae = divMaeRef.current;
+        console.log(cor);
         if (divMae) {
-          divMae.className =
+          divMae.style.background =
             slide.index % 2 === 0
-              ? " flex justify-center bg-[linear-gradient(0deg,_#FFF_20%,_#42f557_100%)]"
-              : " flex justify-center bg-degrade";
+              ? "linear-gradient(0deg, #FFF 20%, #42f557 100%)"
+              : cor;
         }
       }}
     >

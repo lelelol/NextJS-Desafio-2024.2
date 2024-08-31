@@ -10,10 +10,8 @@ import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
 import Carrossel from "../carrossel";
 
 export default function Landing() {
-  const divMaeRef = useRef<HTMLDivElement>(null);
-
   return (
-    <div ref={divMaeRef} id="divmae" className="flex justify-center bg-degrade">
+    <div className="flex justify-center">
       <div className="flex justify-center gap-10 m-3 max-w-[1250px]">
         <div className="flex gap-5 justify-center">
           <div className="p-10 bg-cinza bg-opacity-45 flex justify-center content-center rounded-bl-[90px] rounded-3xl">
@@ -22,7 +20,7 @@ export default function Landing() {
             </p>
           </div>
 
-          <Carrossel divMaeRef={divMaeRef} />
+          <Carrossel />
         </div>
       </div>
     </div>

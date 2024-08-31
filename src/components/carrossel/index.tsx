@@ -3,15 +3,8 @@ import { MutableRefObject, useRef } from "react";
 import Image from "next/image";
 import Produto from "../Produto";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
-import Cookies from "js-cookie";
 
-interface CarrosselProps {
-  divMaeRef: MutableRefObject<HTMLDivElement | null>;
-}
-
-export default function Carrossel({ divMaeRef }: CarrosselProps) {
-  const paginacaoRef = useRef<HTMLDivElement>(null);
-
+export default function Carrossel() {
   return (
     <Splide
       options={{
@@ -24,8 +17,10 @@ export default function Carrossel({ divMaeRef }: CarrosselProps) {
       hasTrack={false}
       className="max-w-[800px] paginacao"
       onMove={(slide) => {
-        const divMae = divMaeRef.current;
-        document.body.style.backgroundColor = "red";
+        document.cookie = "linear-gradient(0deg, #FFF 20%, #eb4034 100%)";
+        var x = document.cookie;
+        console.log(x);
+        document.body.style.background = x;
       }}
     >
       <SplideTrack>
@@ -41,8 +36,7 @@ export default function Carrossel({ divMaeRef }: CarrosselProps) {
             <div className="flex flex-col items-center justify-around pl-8">
               <h2 className="font-semibold text-2xl">Bla bla bla</h2>
               <p className="text-cinzatxt text-center">
-                Lorem ipsum dolor sit amet,
-                ectetur adipiscing elit. Nam non
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non
                 purus vitae nunc placerat sollicitudin. Mauris accumsan feugiat
                 eros eu accumsan. Maecenas scelerisque venenatis nulla eu
                 faucibus. Etiam consectetur nec metus a tempor. In pulvinar

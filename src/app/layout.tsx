@@ -11,6 +11,7 @@ const OpenSans = Open_Sans({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "next reading",
   description: "Loja de livros com preços imbatíveis",
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({

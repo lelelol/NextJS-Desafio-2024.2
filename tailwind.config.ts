@@ -22,7 +22,7 @@ const config: Config = {
       },
       screens: {
         md: "768px",
-        lg: "1280px",
+        lg: "1300px",
         xl: "1920px",
         "2xl": "2560px",
         "3xl": "3440px",

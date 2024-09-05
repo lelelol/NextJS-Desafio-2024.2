@@ -1,7 +1,3 @@
-import Landing from "@/components/landing";
-import Generos from "@/components/generos/indes";
-import ListaProdutos from "@/components/listaProdutos";
-import MVV from "@/components/MVV";
 import Card from "@/components/card";
 
 export default function Contato() {

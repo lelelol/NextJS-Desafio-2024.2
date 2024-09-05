@@ -2,6 +2,7 @@ import Image from "next/image";
 export default function Produto() {
   return (
     <div>
+    <div>
       <Image
         className="ml-5 rounded-lg"
         src="/assets/ex.jpg"
@@ -18,6 +19,7 @@ export default function Produto() {
           <p className="self-end mt-4">R$ 25,00</p>
         </div>
       </div>
+    </div>
     </div>
   );
 }

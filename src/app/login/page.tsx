@@ -1,6 +1,6 @@
-export default function Contato() {
+export default function Login() {
   return (
-    <>
+    <div className="">
       <div className="flex flex-col items-center m-5 p-5">
         <div className="w-full max-w-md bg-cinza p-8 rounded-xl shadow-lg">
           <h1 className="font-semibold text-2xl text-center mb-6">Olá novamente!</h1>
@@ -34,6 +34,6 @@ export default function Contato() {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }

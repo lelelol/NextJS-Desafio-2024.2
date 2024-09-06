@@ -1,8 +1,10 @@
 -- CreateTable
 CREATE TABLE "Product" (
     "id" SERIAL NOT NULL,
-    "title" TEXT NOT NULL,
-    "description" TEXT,
+    "nome" TEXT NOT NULL,
+    "autor" TEXT NOT NULL,
+    "img" TEXT NOT NULL,
+    "genero" TEXT NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 

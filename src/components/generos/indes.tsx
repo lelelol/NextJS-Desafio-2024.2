@@ -11,17 +11,22 @@ export default function Generos() {
       </div>
       <div>
         <div className="flex justify-center flex-wrap gap-14 m-4">
-          <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
+        <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div> <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
+          </div>
+          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div> <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
+          </div>
+          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div> <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
+          </div>
+          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div> <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
+          </div>
+          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div> <div className="bg-cinza w-36 h-20 flex justify-center items-center rounded-xl">
+          </div>
+          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
             <a className="font-semibold text-sm xs:text-lg">Gênero</a>
           </div>
         </div>

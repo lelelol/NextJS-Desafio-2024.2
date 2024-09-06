@@ -16,26 +16,21 @@ export default function Produtos() {
         </div>
         <div className="flex gap-6 justify-center flex-col items-center">
           <div className="flex gap-14 flex-wrap items-center justify-center">
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
-            <Produto />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
+            <Produto titulo={"O processo"} autor={"Franz Kafka"} valor={"R$ 25,00"} img={"/assets/ex.jpg"} />
           </div>
         </div>
       </div>

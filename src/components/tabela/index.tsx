@@ -1,58 +1,34 @@
-export default function Tabela() {
+import React from 'react';
+
+const Tabela = ({ dados }: { dados: Array<any> }) => {
   return (
-    <div className="bg-cinza">
-      <table className="border border-[#dededf] h-full w-[1200px] table-fixed border-collapse text-left">
-        <caption className="caption-top text-left">Table 1</caption>
+    <div className="overflow-x-auto">
+      <table className="min-w-full bg-white">
         <thead>
           <tr>
-            <th className="border border-[#dededf] bg-[#eceff1] text-black p-1.5">
-              Nome
-            </th>
-            <th className="border border-[#dededf] bg-[#eceff1] text-black p-1.5">
-              Autor
-            </th>
-            <th className="border border-[#dededf] bg-[#eceff1] text-black p-1.5">
-              Gênero
-            </th>
-            <th className="border border-[#dededf] bg-[#eceff1] text-black p-1.5">
-              Valor
-            </th>
-            <th className="border border-[#dededf] bg-[#eceff1] text-black p-1.5">
-              Ações
-            </th>
+            <th className="py-2 px-4 border-b">Nome</th>
+            <th className="py-2 px-4 border-b">Autor</th>
+            <th className="py-2 px-4 border-b">Gênero</th>
+            <th className="py-2 px-4 border-b">Valor</th>
+            <th className="py-2 px-4 border-b">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-          </tr>
-          <tr>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-          </tr>
-          <tr>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-          </tr>
-          <tr>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-            <td className="border border-[#dededf] bg-white text-black p-1.5"></td>
-          </tr>
+          {dados.map((item, index) => (
+            <tr key={index}>
+              <td className="py-2 px-4 border-b">{item.nome}</td>
+              <td className="py-2 px-4 border-b">{item.autor}</td>
+              <td className="py-2 px-4 border-b">{item.genero}</td>
+              <td className="py-2 px-4 border-b">{item.valor}</td>
+              <td className="py-2 px-4 border-b">
+                <button className="bg-blue-500 text-white px-2 py-1 rounded">Ação</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
   );
-}
+};
+
+export default Tabela;

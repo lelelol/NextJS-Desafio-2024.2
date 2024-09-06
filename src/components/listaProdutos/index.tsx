@@ -31,13 +31,13 @@ export default function ListaProdutos({ filtro, indice }: ProdutoProps) {
         </h3>
       </div>
       <div className="flex gap-6 justify-center flex-col items-center">
-        <div className="flex gap-14">
+        <div className="flex justify-center items-center flex-wrap gap-14">
           <Produto />
           <Produto />
           <Produto />
           <Produto />
         </div>
-        <div className="flex gap-14">
+        <div className="flex flex-wrap justify-center items-center gap-14">
           <Produto />
           <Produto />
           <Produto />

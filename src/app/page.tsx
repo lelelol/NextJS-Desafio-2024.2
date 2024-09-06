@@ -8,6 +8,9 @@ export default function Home() {
     <>
       <Landing />
       <Generos />
+      <ListaProdutos filtro="Fantasia" indice={"0"} />
+      <ListaProdutos filtro="Romance" indice={"1"} />
+      <ListaProdutos filtro="Romance" indice={"2"} />
       <MVV />
     </>
   );

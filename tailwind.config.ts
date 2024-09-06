@@ -21,6 +21,7 @@ const config: Config = {
         customRed: '#a83242',
       },
       screens: {
+        xs: "420px",
         md: "768px",
         lg: "1300px",
         xl: "1920px",

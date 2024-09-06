@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Landing />
-      
+      <Generos />
       <MVV />
     </>
   );

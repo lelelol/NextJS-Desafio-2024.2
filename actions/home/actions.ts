@@ -29,6 +29,26 @@ export default async function GetLivrosHome() {
     return posts
 }
 
+export async function GetPesquisa(query: string) {
+    const posts = await prisma.product.findMany({
+        where: {
+            OR: [
+                { nome: { contains: query, mode: "insensitive" } },
+                { genero: { contains: query, mode: "insensitive" } },
+            ],
+        },
+        select: {
+            id: true,
+            nome: true,
+            img: true,
+            autor: true,
+            genero: true,
+            price: true
+        },
+    })
+    return posts
+}
+
 export async function GetLivrosAcao() {
     const posts = await prisma.product.findMany({
         where: {
@@ -125,3 +145,4 @@ export async function GetLivrosMisterio() {
     })
     return posts
 }
+

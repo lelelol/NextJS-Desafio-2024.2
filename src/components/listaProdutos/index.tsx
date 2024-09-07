@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import Script from "next/script";
+
 import React, { useEffect } from "react";
 import Produto from "../Produto";
 import { Livros } from "../../../types/home/home";
@@ -20,7 +19,7 @@ export default function ListaProdutos({ posts }: LivrosProps) {
         <h3
           className="font-normal text-cinzatxt mt-0 text-xl"
         >
-          O melhor em ´${posts[0].genero}´
+          O melhor em {posts[0].genero}
         </h3>
       </div>
       <div className="flex gap-6 justify-center flex-col items-center">

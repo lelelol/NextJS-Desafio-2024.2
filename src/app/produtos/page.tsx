@@ -1,10 +1,10 @@
 'use client';
 
-import Pesquisa from "@/components/pesquisa";
 import Produto from "@/components/Produto";
 import { SetStateAction, useState, useEffect } from "react";
 import { Livros } from "../../../types/home/home";
 import GetLivrosHome from "../../../actions/home/actions";
+import Searchmain from "@/components/pesquisa-main";
 
 export default function Produtos() {
   const [posts, setPosts] = useState<Livros[]>([]);
@@ -29,7 +29,7 @@ export default function Produtos() {
 
   return (
     <>
-      <Pesquisa />
+      <Searchmain />
       <div className="m-10">
         <div className="pl-6 mt-10 mb-[2%]">
           <h1 className="font-semibold text-2xl mb-0">

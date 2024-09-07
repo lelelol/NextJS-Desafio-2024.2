@@ -3,20 +3,14 @@ import Image from "next/image";
 import Script from "next/script";
 import React, { useEffect } from "react";
 import Produto from "../Produto";
+import { Livros } from "../../../types/home/home";
 
-type ProdutoProps = {
-  filtro: string;
-  indice: string;
-};
 
-export default function ListaProdutos({ filtro, indice }: ProdutoProps) {
-  useEffect(() => {
-    console.log(indice);
-    var subtitulo = document.getElementById("subtitulo" + indice);
-    if (subtitulo) {
-      subtitulo.innerHTML = "O melhor em " + filtro;
-    }
-  });
+type LivrosProps = {
+  posts: Livros[];
+}
+
+export default function ListaProdutos({ posts }: LivrosProps) {
   return (
     <div className="m-10">
       <div className="pl-6 mt-10 mb-[2%]">
@@ -24,25 +18,19 @@ export default function ListaProdutos({ filtro, indice }: ProdutoProps) {
           Embarque a sua próxima aventura
         </h1>
         <h3
-          id={`subtitulo${indice}`}
           className="font-normal text-cinzatxt mt-0 text-xl"
         >
-          oi
+          O melhor em ´${posts[0].genero}´
         </h3>
       </div>
       <div className="flex gap-6 justify-center flex-col items-center">
         <div className="flex justify-center items-center flex-wrap gap-14">
-          <Produto />
-          <Produto />
-          <Produto />
-          <Produto />
+          {posts.map((post) => (
+            <Produto key={post.id} post={post} />
+          ))}
+
         </div>
-        <div className="flex flex-wrap justify-center items-center gap-14">
-          <Produto />
-          <Produto />
-          <Produto />
-          <Produto />
-        </div>
+
       </div>
     </div>
   );

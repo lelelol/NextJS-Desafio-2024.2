@@ -3,8 +3,13 @@
 import "@splidejs/splide/css";
 import React from "react";
 import Carrossel from "../carrossel";
+import { Livros } from "../../../types/home/home";
 
-export default function Landing() {
+type LivrosProps = {
+  posts: Livros[];
+}
+
+export default function Landing({ posts }: LivrosProps) {
   return (
     <div className="flex justify-center">
       <div className="flex justify-center gap-10 m-3 max-w-[1250px]">
@@ -15,7 +20,7 @@ export default function Landing() {
             </p>
           </div>
 
-          <Carrossel />
+          <Carrossel posts={posts} />
         </div>
       </div>
     </div>

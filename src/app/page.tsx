@@ -2,15 +2,16 @@ import Landing from "@/components/landing";
 import Generos from "@/components/generos/indes";
 import ListaProdutos from "@/components/listaProdutos";
 import MVV from "@/components/MVV";
+import GetLivrosHome from "../../actions/home/actions";
 
-export default function Home() {
+export default async function Home() {
+  const livros = await GetLivrosHome();
   return (
     <>
-      <Landing />
+      <Landing posts={livros} />
       <Generos />
-      <ListaProdutos filtro="Fantasia" indice={"0"} />
-      <ListaProdutos filtro="Romance" indice={"1"} />
-      <ListaProdutos filtro="Romance" indice={"2"} />
+      <ListaProdutos posts={livros} />
+
       <MVV />
     </>
   );

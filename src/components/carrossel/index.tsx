@@ -3,8 +3,13 @@ import { MutableRefObject, useRef } from "react";
 import Image from "next/image";
 import Produto from "../Produto";
 import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
+import { Livros } from "../../../types/home/home";
 
-export default function Carrossel() {
+type LivrosProps = {
+  posts: Livros[];
+}
+
+export default function Carrossel({ posts }: LivrosProps) {
   return (
     <div>
       <Splide
@@ -46,8 +51,8 @@ export default function Carrossel() {
               </div>
             </div>
             <div className="flex justify-between">
-              <Produto />
-              <Produto />
+              <Produto key={posts[0].id} post={posts[0]} />
+              <Produto key={posts[1].id} post={posts[1]} />
             </div>
           </SplideSlide>
           <SplideSlide>
@@ -71,8 +76,8 @@ export default function Carrossel() {
               </div>
             </div>
             <div className="flex justify-between">
-              <Produto />
-              <Produto />
+              <Produto key={posts[0].id} post={posts[0]} />
+              <Produto key={posts[1].id} post={posts[1]} />
             </div>
           </SplideSlide>
         </SplideTrack>

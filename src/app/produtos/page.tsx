@@ -2,54 +2,30 @@
 
 import Pesquisa from "@/components/pesquisa";
 import Produto from "@/components/Produto";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useState, useEffect } from "react";
+import { Livros } from "../../../types/home/home";
+import GetLivrosHome from "../../../actions/home/actions";
 
 export default function Produtos() {
+  const [posts, setPosts] = useState<Livros[]>([]);
+  useEffect(() => {
+    GetLivrosHome().then(setPosts);
+  }, []);
 
-  const produtos = [
-    { nome: "Livro A", autor: "Autor A", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro B", autor: "Autor B", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro C", autor: "Autor C", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro D", autor: "Autor D", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro A", autor: "Autor A", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro B", autor: "Autor B", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro C", autor: "Autor C", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro D", autor: "Autor D", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro A", autor: "Autor A", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro B", autor: "Autor B", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro C", autor: "Autor C", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro D", autor: "Autor D", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro A", autor: "Autor A", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro B", autor: "Autor B", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro C", autor: "Autor C", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro D", autor: "Autor D", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro A", autor: "Autor A", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro B", autor: "Autor B", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro C", autor: "Autor C", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro D", autor: "Autor D", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro A", autor: "Autor A", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro B", autor: "Autor B", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro C", autor: "Autor C", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro D", autor: "Autor D", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro A", autor: "Autor A", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro B", autor: "Autor B", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    { nome: "Livro C", autor: "Autor C", img: "/assets/ex.jpg", valor: "R$ 30,00" },
-    { nome: "Livro D", autor: "Autor D", img: "/assets/ex.jpg", valor: "R$ 25,00" },
-    // Continue a lista conforme necessário
-  ];
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-  const totalPages = Math.ceil(produtos.length / itemsPerPage);
+  const itemsPerPage = 15;
+  const totalPages = Math.ceil(posts.length / itemsPerPage);
 
   const handlePageChange = (pageNumber: SetStateAction<number>) => {
     setCurrentPage(pageNumber);
   };
 
-  const displayedProducts = produtos.slice(
+  const displayedProducts = posts.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
 
   return (
     <>
@@ -65,15 +41,8 @@ export default function Produtos() {
         </div>
         <div className="flex gap-6 justify-center flex-col items-center">
           <div className="flex gap-14 flex-wrap items-center justify-center">
-            {displayedProducts.map((livro, index) => (
-              <Produto
-                key={index}
-                id={index}
-                titulo={livro.nome}
-                autor={livro.autor}
-                valor={livro.valor}
-                img={livro.img}
-              />
+            {displayedProducts.map((post) => (
+              <Produto key={post.id} post={post} />
             ))}
           </div>
         </div>

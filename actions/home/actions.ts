@@ -1,6 +1,7 @@
 "use server"
 
 import prisma from "@/lib/db"
+import { count } from "console"
 
 
 // model Product {
@@ -14,9 +15,10 @@ import prisma from "@/lib/db"
 //   }
 
 
-export default async function GetLivrosHome() {
-    const posts = await prisma.product.findMany({
+export default async function GetLivrosHome(currentPage: number) {
 
+    const offset = (currentPage - 1) * 15;
+    const posts = await prisma.product.findMany({
         select: {
             id: true,
             nome: true,
@@ -25,11 +27,22 @@ export default async function GetLivrosHome() {
             genero: true,
             price: true
         },
-    })
-    return posts
+        take: 15,
+        skip: offset
+    });
+
+    const count = await prisma.product.count();
+
+    return {
+        posts,
+        totalItems: count
+    };
 }
 
-export async function GetPesquisa(query: string) {
+
+export async function GetPesquisa(query: string, currentPage: number) {
+
+    const offset = (currentPage - 1) * 15
     const posts = await prisma.product.findMany({
         where: {
             OR: [
@@ -44,9 +57,19 @@ export async function GetPesquisa(query: string) {
             autor: true,
             genero: true,
             price: true
-        },
+        }, take: 15, skip: offset
     })
-    return posts
+    const count = await prisma.product.count({
+        where: {
+            OR: [
+                { nome: { contains: query, mode: "insensitive" } },
+                { genero: { contains: query, mode: "insensitive" } },
+            ],
+        },
+    });
+    const totalPages = Math.ceil(count / 15);
+
+    return { posts, count, totalPages }
 }
 
 export async function GetLivrosAcao() {

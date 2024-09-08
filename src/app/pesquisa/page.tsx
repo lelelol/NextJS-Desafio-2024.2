@@ -2,6 +2,7 @@ import Searchmain from "@/components/pesquisa-main";
 import { SearchOutlined } from "@mui/icons-material";
 import { GetPesquisa } from "../../../actions/home/actions";
 import Produto from "@/components/Produto";
+import Paginacao from "@/components/paginacao";
 
 export default async function Pesquisa({
     searchParams,
@@ -12,10 +13,10 @@ export default async function Pesquisa({
     }
 }) {
     const query = searchParams?.query || "";
-    const page = searchParams?.page || 1;
+    const page = Number(searchParams?.page) || 1;
 
     // GetPesquisa returns an array of books, not an object with posts
-    const posts = await GetPesquisa(query);
+    const { posts, count, totalPages } = await GetPesquisa(query, page);
 
     return (
         <div >
@@ -25,7 +26,9 @@ export default async function Pesquisa({
                     <Produto key={post.id} post={post} />
                 ))}
             </div>
-
+            {totalPages > 1 && (
+                <Paginacao totalPages={totalPages} />
+            )}
         </div>
     );
 }

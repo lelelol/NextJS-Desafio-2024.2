@@ -1,7 +1,7 @@
 'use client';
 
 import Produto from "@/components/Produto";
-import { SetStateAction, useState, useEffect } from "react";
+import { SetStateAction, useState, useEffect, Suspense } from "react";
 import { Livros } from "../../../types/home/home";
 import GetLivrosHome from "../../../actions/home/actions";
 import Searchmain from "@/components/pesquisa-main";
@@ -9,7 +9,15 @@ import Paginacao from "@/components/paginacao";
 import { useSearchParams } from 'next/navigation';
 
 export default function Produtos() {
+  const Fallback = () => <div>Carregando!</div>;
+  return (
+    <Suspense fallback={<Fallback />}>
+      <ProdutosContent />
+    </Suspense>
+  );
+}
 
+function ProdutosContent() {
   const [posts, setPosts] = useState<Livros[]>([]);
   const [totalItems, setTotalItems] = useState(0);
   const searchParams = useSearchParams();
@@ -25,7 +33,6 @@ export default function Produtos() {
   }, [searchParams]);
 
   const totalPages = Math.ceil(totalItems / 15);
-
 
   return (
     <>

@@ -2,7 +2,7 @@ import Landing from "@/components/landing";
 import Generos from "@/components/generos/indes";
 import ListaProdutos from "@/components/listaProdutos";
 import MVV from "@/components/MVV";
-import GetLivrosHome, { GetLivros, GetLivrosAcao, GetLivrosDrama, GetLivrosMisterio } from "../../actions/home/actions";
+import { GetLivros, GetLivrosAcao, GetLivrosDrama, GetLivrosMisterio } from "../../actions/home/actions";
 
 export default async function Home() {
   const acao = await GetLivrosAcao();

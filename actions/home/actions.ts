@@ -39,6 +39,19 @@ export default async function GetLivrosHome(currentPage: number) {
     };
 }
 
+export async function GetLivros() {
+    const posts = await prisma.product.findMany({
+        select: {
+            id: true,
+            nome: true,
+            img: true,
+            autor: true,
+            genero: true,
+            price: true
+        },
+    })
+    return posts
+}
 
 export async function GetPesquisa(query: string, currentPage: number) {
 

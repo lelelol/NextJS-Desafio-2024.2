@@ -2,13 +2,13 @@ import Landing from "@/components/landing";
 import Generos from "@/components/generos/indes";
 import ListaProdutos from "@/components/listaProdutos";
 import MVV from "@/components/MVV";
-import GetLivrosHome, { GetLivrosAcao, GetLivrosDrama, GetLivrosMisterio } from "../../actions/home/actions";
+import GetLivrosHome, { GetLivros, GetLivrosAcao, GetLivrosDrama, GetLivrosMisterio } from "../../actions/home/actions";
 
 export default async function Home() {
   const acao = await GetLivrosAcao();
   const drama = await GetLivrosDrama();
   const misterio = await GetLivrosMisterio();
-  const livros = await GetLivrosHome();
+  const livros = await GetLivros();
 
 
   return (

@@ -1,4 +1,8 @@
+import Link from "next/link";
+
 export default function Generos() {
+  const generos = ["Ação", "Aventura", "Drama", "Mistério", "Romance", "Fantasia"];
+
   return (
     <div>
       <div className="pl-6 mt-10 mb-4 m-[2%]">
@@ -11,24 +15,14 @@ export default function Generos() {
       </div>
       <div>
         <div className="flex justify-center flex-wrap gap-14 m-4">
-        <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div>
-          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div>
-          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div>
-          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div>
-          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div>
-          <div className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl">
-            <a className="font-semibold text-sm xs:text-lg">Gênero</a>
-          </div>
+          {generos.map((genero) => (
+            <div
+              key={genero}
+              className="bg-cinza w-24 h-16 sm:w-36 sm:h-20 flex justify-center items-center rounded-xl"
+            >
+              <Link className="font-semibold text-sm xs:text-lg" href={"/pesquisa?query=" + genero}>{genero}</Link>
+            </div>
+          ))}
         </div>
       </div>
     </div>

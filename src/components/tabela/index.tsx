@@ -32,7 +32,7 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
 
   return (
     <div className="overflow-x-auto p-10">
-      <button onClick={() => setAddModalOpen(true)} className="bg-green-500 text-white px-4 py-2 rounded">
+      <button onClick={() => setAddModalOpen(true)} className="bg-green-500 text-white mb-3 px-4 py-2 rounded">
         Adicionar Livro
       </button>
 
@@ -51,7 +51,7 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
         />
       )}
 
-      <table className="min-w-full bg-white text-justify">
+      <table className="min-w-full bg-white text-justify rounded-md">
         <thead>
           <tr>
             <th className="py-2 px-4 border-b">Nome</th>

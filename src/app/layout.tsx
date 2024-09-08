@@ -20,9 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={OpenSans.className}>
+      <body className={`${OpenSans.className} flex flex-col min-h-screen`}>
         <Navbar />
-        {children}
+        <main className="flex-grow">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

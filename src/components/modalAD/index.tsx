@@ -91,7 +91,8 @@ const AddLivroModal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit }) => {
                             <option value="ficcao cientifica">Ficção Científica</option>
                             <option value="romance">Romance</option>
                             <option value="misterio">Mistério</option>
-                            <option value="acao e aventura">Ação e Aventura</option>
+                            <option value="ação">Ação</option>
+                            <option value="aventura">Aventura</option>
                         </select>
                     </div>
 

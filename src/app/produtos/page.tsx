@@ -24,7 +24,7 @@ function ProdutosContent() {
 
   useEffect(() => {
     const page = searchParams.get('page');
-    const currentPage = page ? parseInt(page, 10) : 1;
+    const currentPage = page ? parseInt(page, 15) : 1;
 
     GetLivrosHome(currentPage).then(data => {
       setPosts(data.posts);

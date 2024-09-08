@@ -214,7 +214,7 @@ export async function GetLivrosMisterio() {
 }
 
 export async function GetLivrosAdm(currentPage: number) {
-    const offset = (currentPage - 1) * 15
+    const offset = (currentPage - 1) * 8
     const posts = await prisma.product.findMany({
         select: {
             id: true,
@@ -232,7 +232,7 @@ export async function GetLivrosAdm(currentPage: number) {
         }
     })
     const count = await prisma.product.count();
-    const totalPages = Math.ceil(count / 15);
+    const totalPages = Math.ceil(count / 8);
 
     return { posts, count, totalPages }
 }
@@ -244,7 +244,6 @@ export async function DeleteLivro(id: number | undefined) {
             id: id
         }
     })
-    revalidatePath("/gerenciamento")
 }
 
 export async function AddLivro(livro: { nome: string, autor: string, genero: string, price: string, img: string }) {
@@ -257,7 +256,6 @@ export async function AddLivro(livro: { nome: string, autor: string, genero: str
             img: livro.img
         }
     })
-    revalidatePath("/gerenciamento")
 }
 export async function EditLivro(livro: { id: number, nome: string, autor: string, genero: string, price: string, img: string }) {
     await prisma.product.update({

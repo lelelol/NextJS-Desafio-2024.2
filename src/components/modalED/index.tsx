@@ -101,7 +101,8 @@ export default function EditLivroModal({ isOpen, onClose, onSubmit, initialData 
                             <option value="ficcao cientifica">Ficção Científica</option>
                             <option value="romance">Romance</option>
                             <option value="misterio">Mistério</option>
-                            <option value="acao e aventura">Ação e Aventura</option>
+                            <option value="ação">Ação</option>
+                            <option value="aventura">Aventura</option>
                         </select>
                     </div>
 

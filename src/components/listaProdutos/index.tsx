@@ -14,7 +14,7 @@ export default function ListaProdutos({ posts }: LivrosProps) {
     <div className="m-10">
       <div className="pl-6 mt-10 mb-[2%]">
         <h1 className="font-semibold text-2xl mb-0">
-          Embarque a sua próxima aventura
+          Embarque em um novo mundo de {posts[0].genero}
         </h1>
         <h3
           className="font-normal text-cinzatxt mt-0 text-xl"
@@ -24,7 +24,7 @@ export default function ListaProdutos({ posts }: LivrosProps) {
       </div>
       <div className="flex gap-6 justify-center flex-col items-center">
         <div className="flex justify-center items-center flex-wrap gap-14">
-          {posts.map((post) => (
+          {posts.slice(0, 5).map((post) => (
             <Produto key={post.id} post={post} />
           ))}
 

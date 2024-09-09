@@ -3,7 +3,7 @@ import { Livros } from '../../../types/home/home';
 import { AddLivro, DeleteLivro, EditLivro } from '../../../actions/home/actions';
 import AddLivroModal from '../modalAD';
 import EditLivroModal from '../modalED';
-import DeleteModal from '../modalDel';
+import DeleteConfirmModal from '../modalDel'; // Importe o novo modal de confirmação de deleção
 import ViewLivroModal from '../modalVZ'; // Importe o ViewLivroModal
 
 const Tabela = ({ dados }: { dados: Livros[] }) => {
@@ -23,14 +23,17 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
     }
   };
 
-  const handleDelLivro = async (livro: { id: number }) => {
-    try {
-      await DeleteLivro(livro.id);
-      console.log("Livro removido com sucesso");
-      window.location.reload();
-    } catch (error) {
-      console.error("Erro ao remover o livro:", error);
+  const handleDelLivro = async () => {
+    if (selectedLivro) {
+      try {
+        await DeleteLivro(selectedLivro.id);
+        console.log("Livro removido com sucesso");
+        window.location.reload();
+      } catch (error) {
+        console.error("Erro ao remover o livro:", error);
+      }
     }
+    setDelModalOpen(false);
   };
 
   const handleEditLivro = async (livro: { id: number; nome: string; autor: string; genero: string; price: string; img: string }) => {
@@ -55,10 +58,11 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
         onClose={() => setAddModalOpen(false)}
         onSubmit={handleAddLivro}
       />
-      <DeleteModal
+
+      <DeleteConfirmModal
         isOpen={isDelModalOpen}
         onClose={() => setDelModalOpen(false)}
-        onSubmit={handleDelLivro}
+        onConfirm={handleDelLivro}
       />
 
       {selectedLivro && (
@@ -116,7 +120,8 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
                 <button
                   className="bg-red-500 text-white px-2 py-1 rounded"
                   onClick={() => {
-                    handleDelLivro({ id: item.id });
+                    setSelectedLivro(item);
+                    setDelModalOpen(true);
                   }}
                 >
                   Deletar

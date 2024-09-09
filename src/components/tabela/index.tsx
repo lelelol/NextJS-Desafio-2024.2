@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Livros } from '../../../types/home/home';
 import { AddLivro, DeleteLivro, EditLivro } from '../../../actions/home/actions';
 import AddLivroModal from '../modalAD';
-import EditLivroModal from '../modalED'; // Importe o EditLivroModal
+import EditLivroModal from '../modalED';
+import DeleteModal from '../modalDel';
+import ViewLivroModal from '../modalVZ'; // Importe o ViewLivroModal
 
 const Tabela = ({ dados }: { dados: Livros[] }) => {
   const [isAddModalOpen, setAddModalOpen] = useState(false);
+  const [isDelModalOpen, setDelModalOpen] = useState(false);
   const [isEditModalOpen, setEditModalOpen] = useState(false);
+  const [isViewModalOpen, setViewModalOpen] = useState(false);
   const [selectedLivro, setSelectedLivro] = useState<Livros | null>(null);
 
   const handleAddLivro = async (livro: { nome: string, autor: string, genero: string, price: string, img: string }) => {
@@ -16,6 +20,16 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
       window.location.reload();
     } catch (error) {
       console.error("Erro ao adicionar o livro:", error);
+    }
+  };
+
+  const handleDelLivro = async (livro: { id: number }) => {
+    try {
+      await DeleteLivro(livro.id);
+      console.log("Livro removido com sucesso");
+      window.location.reload();
+    } catch (error) {
+      console.error("Erro ao remover o livro:", error);
     }
   };
 
@@ -41,14 +55,26 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
         onClose={() => setAddModalOpen(false)}
         onSubmit={handleAddLivro}
       />
+      <DeleteModal
+        isOpen={isDelModalOpen}
+        onClose={() => setDelModalOpen(false)}
+        onSubmit={handleDelLivro}
+      />
 
       {selectedLivro && (
-        <EditLivroModal
-          isOpen={isEditModalOpen}
-          onClose={() => setEditModalOpen(false)}
-          onSubmit={handleEditLivro}
-          initialData={selectedLivro}
-        />
+        <>
+          <EditLivroModal
+            isOpen={isEditModalOpen}
+            onClose={() => setEditModalOpen(false)}
+            onSubmit={handleEditLivro}
+            initialData={selectedLivro}
+          />
+          <ViewLivroModal
+            isOpen={isViewModalOpen}
+            onClose={() => setViewModalOpen(false)}
+            livro={selectedLivro}
+          />
+        </>
       )}
 
       <table className="min-w-full bg-white text-justify rounded-md">
@@ -70,6 +96,15 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
               <td className="py-2 px-4 border-b">{item.price}</td>
               <td className="py-2 px-4 border-b flex justify-center gap-2">
                 <button
+                  className="bg-yellow-500 text-white px-2 py-1 rounded"
+                  onClick={() => {
+                    setSelectedLivro(item);
+                    setViewModalOpen(true);
+                  }}
+                >
+                  Visualizar
+                </button>
+                <button
                   className="bg-blue-500 text-white px-2 py-1 rounded"
                   onClick={() => {
                     setSelectedLivro(item);
@@ -81,8 +116,7 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
                 <button
                   className="bg-red-500 text-white px-2 py-1 rounded"
                   onClick={() => {
-                    DeleteLivro(item.id);
-                    window.location.reload();
+                    handleDelLivro({ id: item.id });
                   }}
                 >
                   Deletar

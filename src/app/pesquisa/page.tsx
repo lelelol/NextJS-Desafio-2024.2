@@ -15,8 +15,7 @@ export default async function Pesquisa({
     const query = searchParams?.query || "";
     const page = Number(searchParams?.page) || 1;
 
-    // GetPesquisa returns an array of books, not an object with posts
-    const { posts, count, totalPages } = await GetPesquisa(query, page);
+    const { posts, totalPages } = await GetPesquisa(query, page);
 
     return (
         <div >

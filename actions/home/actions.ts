@@ -90,7 +90,7 @@ export async function GetPesquisa(query: string, currentPage: number) {
     });
     const totalPages = Math.ceil(count / 15);
 
-    return { posts, count, totalPages }
+    return { posts, totalPages }
 }
 
 export async function GetLivrosAcao() {

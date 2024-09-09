@@ -2,7 +2,7 @@
 
 import { SearchOutlined } from "@mui/icons-material";
 import { useRouter, useSearchParams } from "next/navigation";
-import { use, useState } from "react";
+import { useState } from "react";
 
 
 

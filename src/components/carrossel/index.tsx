@@ -30,29 +30,30 @@ export default function Carrossel({ posts }: LivrosProps) {
   const sections = [
     {
       title: "Ação",
-      description: "Mergulhe em aventuras eletrizantes e cheias de adrenalina, onde cada página é uma explosão de emoção."
+      description: "Mergulhe em aventuras eletrizantes e cheias de adrenalina, onde cada página é uma explosão de emoção. Sinta seu coração disparar enquanto os heróis enfrentam desafios impossíveis e inimigos formidáveis em histórias que te deixarão sem fôlego."
     },
     {
       title: "Romance",
-      description: "Explore histórias de amor inesquecíveis, cheias de emoções e reviravoltas que vão aquecer seu coração."
+      description: "Explore histórias de amor inesquecíveis, cheias de emoções intensas e reviravoltas que vão aquecer seu coração. De paixões avassaladoras a amores proibidos, cada conto é uma jornada emocional que toca as profundezas do seu ser."
     },
     {
       title: "Fantasia",
-      description: "Entre em reinos mágicos, onde a imaginação não tem limites e o impossível se torna realidade."
+      description: "Entre em reinos mágicos e místicos, onde a imaginação não tem limites e o impossível se torna realidade. De épicas batalhas entre o bem e o mal a jornadas em mundos encantados, cada história é uma porta para um universo de maravilhas."
     },
     {
       title: "Mistério",
-      description: "Desvende segredos e enigmas em tramas que vão te prender até a última página."
+      description: "Desvende segredos obscuros e enigmas intricados em tramas que vão te prender até a última página. Siga os passos de detetives brilhantes e personagens enigmáticos em histórias onde cada detalhe pode ser a chave para a solução."
     },
     {
       title: "Drama",
-      description: "Experimente histórias profundas e impactantes, que exploram as complexidades da vida e das emoções humanas."
+      description: "Experimente histórias profundas e impactantes, que exploram as complexidades da vida e das emoções humanas. De conflitos familiares a dilemas existenciais, essas narrativas mergulham nas profundezas da alma e nos desafios do cotidiano."
     },
     {
       title: "Aventura",
-      description: "Descubra mundos novos e vivencie jornadas épicas repletas de desafios e descobertas incríveis."
+      description: "Descubra mundos novos e vivencie jornadas épicas repletas de desafios e descobertas incríveis. A cada passo, enfrente perigos desconhecidos e desvende mistérios antigos, enquanto os protagonistas se lançam em missões que testam sua coragem e determinação."
     }
   ];
+  
 
   const handleSlideChange = (splide: any) => {
     const newActiveSlide = splide.index;
@@ -88,7 +89,7 @@ export default function Carrossel({ posts }: LivrosProps) {
                 />
                 <div className="flex flex-col bg-cinza bg-opacity-45 md:bg-opacity-0 m-3 rounded-3xl items-center justify-around md:pl-8">
                   <h2 className="font-semibold text-2xl md:mt-0 mt-14">{slide.genre[0].genero.charAt(0).toUpperCase() + slide.genre[0].genero.slice(1)}</h2>
-                  <p className="text-cinzatxt text-center">
+                  <p className="text-cinzatxt text-center p-2">
                     {sections[index].description}
                   </p>
                 </div>

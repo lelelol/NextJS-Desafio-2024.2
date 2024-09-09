@@ -15,7 +15,7 @@ export default function Carrossel({ posts }: LivrosProps) {
   const romance = posts.filter((post) => post.genero === "romance");
   const acao = posts.filter((post) => post.genero === "ação");
   const fantasia = posts.filter((post) => post.genero === "fantasia");
-  const misterio = posts.filter((post) => post.genero === "mistério");
+  const misterio = posts.filter((post) => post.genero === "misterio");
   const drama = posts.filter((post) => post.genero === "drama");
   const aventura = posts.filter((post) => post.genero === "aventura");
 

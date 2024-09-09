@@ -196,7 +196,7 @@ export async function GetLivrosDrama() {
 export async function GetLivrosMisterio() {
     const posts = await prisma.product.findMany({
         where: {
-            genero: "mistério"
+            genero: "misterio"
         },
         select: {
             id: true,

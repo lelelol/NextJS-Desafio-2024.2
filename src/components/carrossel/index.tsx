@@ -93,9 +93,6 @@ export default function Carrossel({ posts }: LivrosProps) {
         </div>
       </Splide>
 
-
-
-
       <Splide
         options={{
           type: "loop",
@@ -110,7 +107,7 @@ export default function Carrossel({ posts }: LivrosProps) {
       >
         <SplideTrack>
           {slides.map((slide, index) => (
-            <SplideSlide>
+            <SplideSlide key={index}>
               <div className="flex items-center justify-center">
                 <Image
                   className="rounded-lg -mb-[55px]"
@@ -132,8 +129,6 @@ export default function Carrossel({ posts }: LivrosProps) {
                     vestibulum leo. Ut cursus elit a odio tincidunt rutrum.
                   </p>
                 </div>
-              </div>
-              <div className="flex justify-between">
               </div>
             </SplideSlide>
           ))}

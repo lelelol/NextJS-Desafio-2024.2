@@ -23,7 +23,7 @@ const Tabela = ({ dados }: { dados: Livros[] }) => {
     try {
       await EditLivro(livro);
       console.log("Livro editado com sucesso");
-      window.location.reload(); // Ou atualize a tabela de outra forma
+      window.location.reload();
     } catch (error) {
       console.error("Erro ao editar o livro:", error);
     }

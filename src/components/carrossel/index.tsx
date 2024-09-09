@@ -92,6 +92,62 @@ export default function Carrossel({ posts }: LivrosProps) {
           </button>
         </div>
       </Splide>
+
+
+
+
+      <Splide
+        options={{
+          type: "loop",
+          pagination: true,
+          autoplay: true,
+          interval: 4000,
+          pauseOnHover: true,
+        }}
+        hasTrack={false}
+        className="max-w-[100vw] paginacao block md:hidden"
+        onMove={handleSlideChange}
+      >
+        <SplideTrack>
+          {slides.map((slide, index) => (
+            <SplideSlide>
+              <div className="flex items-center justify-center">
+                <Image
+                  className="rounded-lg -mb-[55px]"
+                  src="/assets/ex.jpg"
+                  width={140}
+                  height={300}
+                  alt="capa"
+                />
+              </div>
+
+              <div className="flex  bg-cinza bg-opacity-45 max-w-[100vw] rounded-3xl p-4 mb-3">
+                <div className="flex flex-col items-center justify-around">
+                  <h2 className="font-semibold text-2xl mt-10">{slide.genre[0].genero.charAt(0).toUpperCase() + slide.genre[0].genero.slice(1)}</h2>
+                  <p className="text-cinzatxt text-center">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non
+                    purus vitae nunc placerat sollicitudin. Mauris accumsan feugiat
+                    eros eu accumsan. Maecenas scelerisque venenatis nulla eu
+                    faucibus. Etiam consectetur nec metus a tempor. In pulvinar
+                    vestibulum leo. Ut cursus elit a odio tincidunt rutrum.
+                  </p>
+                </div>
+              </div>
+              <div className="flex justify-between">
+              </div>
+            </SplideSlide>
+          ))}
+        </SplideTrack>
+        <div className="splide__arrows flex justify-center gap-40">
+          <button className="splide__arrow--prev bg-cinza bg-opacity-45 rounded-3xl p-4 mt-3">
+            <ArrowForwardIos />
+          </button>
+
+          <button className="splide__arrow--next bg-cinza bg-opacity-45 rounded-3xl p-4 mt-3">
+            <ArrowForwardIos />
+          </button>
+        </div>
+      </Splide>
     </div>
   );
 }

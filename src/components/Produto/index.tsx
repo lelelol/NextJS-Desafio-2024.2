@@ -34,26 +34,54 @@ export default function Produto({ post }: ProdutoProps) {
           </div>
         </div>
       </div>
-      <div className="block md:hidden">
+
+
+      <div className="hidden xs:block md:hidden">
+  <Image
+    className="ml-5 rounded-lg"
+    src={post.img}
+    width={60}
+    height={140}
+    alt="capa"
+  />
+  <div className="flex -mt-[66px] h-fit w-fit flex-col bg-cinza bg-opacity-45 rounded-3xl p-4">
+    <div className="flex flex-col flex-wrap justify-end pl-[70px]">
+      <h2 className="font-semibold text-sm">
+        {truncarTexto(post.nome, maxCaracteres)}
+      </h2>
+      <h3 className="font-medium -mt-[6px] text-cinzatxt text-sm">
+        {truncarTexto(post.autor, maxCaracteres)}
+      </h3>
+      <p className="self-end mt-1">{post.price}</p>
+    </div>
+  </div>
+</div>
+
+
+      <div className="block xs:hidden">
+        <div className="flex  bg-cinza bg-opacity-45 rounded-3xl p-2">
         <Image
-          className="ml-5 rounded-lg"
+          className="ml-2 rounded-lg"
           src={post.img}
-          width={60}
+          width={50}
           height={150}
           alt="capa"
         />
-        <div className="flex -mt-[66px] h-fit w-fit flex-col bg-cinza bg-opacity-45 rounded-3xl p-4">
-          <div className="flex flex-col flex-wrap justify-end pl-[70px]">
+        <div className="flex h-fit min-w-32 w-fit flex-colp-2">
+          <div className="flex flex-col flex-wrap justify-end pl-2">
             <h2 className="font-semibold text-sm">
-              {truncarTexto(post.nome, maxCaracteres)}
+              {truncarTexto(post.nome, 14)}
             </h2>
             <h3 className="font-medium -mt-[6px] text-cinzatxt text-sm">
               {truncarTexto(post.autor, maxCaracteres)}
             </h3>
-            <p className="self-end mt-1">{post.price}</p>
+            <p className="self-end text-sm mt-1">{post.price}</p>
           </div>
         </div>
+        </div>
+        
       </div>
+
     </div>
   );
 }

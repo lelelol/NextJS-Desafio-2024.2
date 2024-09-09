@@ -21,9 +21,6 @@ export default async function GetLivrosHome(currentPage: number) {
 
     const offset = (currentPage - 1) * 15;
     const posts = await prisma.product.findMany({
-        orderBy:{
-            nome: 'asc'
-        },
         select: {
             id: true,
             nome: true,
@@ -54,7 +51,7 @@ export async function GetLivros() {
             price: true
         },
         orderBy: {
-            nome: 'asc'
+            id: 'desc'
         }
     })
     return posts
@@ -231,7 +228,7 @@ export async function GetLivrosAdm(currentPage: number) {
         take: 8,
         skip: offset,
         orderBy: {
-            nome: 'asc'
+            createdAt: 'desc'
         }
     })
     const count = await prisma.product.count();

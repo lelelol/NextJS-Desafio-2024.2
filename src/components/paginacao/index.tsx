@@ -1,22 +1,24 @@
-'use client';
+'use client'
 
-import clsx from "clsx";
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
-import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import clsx from "clsx"
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
+import Link from "next/link"
+import { usePathname, useSearchParams } from "next/navigation"
 
-export default function Paginacao({ totalPages }: { totalPages: number }) {
-    const pathname = usePathname();
-    const searchParams = useSearchParams();
-    const currentPage = Number(searchParams.get("page")) || 1;
+export default function Pagination({totalPages}: {totalPages: number}) {
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+    const currentPage = Number(searchParams.get('page') || 1)
 
     const createPageURL = (pageNumber: number | string) => {
-        const params = new URLSearchParams(searchParams);
+        const params = new URLSearchParams(searchParams)
         params.set('page', "1")
-        params.set('page', pageNumber.toString());
-        return `${pathname}?${params.toString()}`;
-    };
+        params.set("page", pageNumber.toString())
+        return `${pathname}?${params.toString()}`
+    }
+
     const allPages = generatePagination(currentPage, totalPages)
+
     return (
         <div className="w-full flex items-center px-4 py-2 justify-center gap-6">
             <div className="flex">

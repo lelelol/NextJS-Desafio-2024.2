@@ -5,7 +5,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import Link from "next/link"
 import { usePathname, useSearchParams } from "next/navigation"
 
-export default function Pagination({totalPages}: {totalPages: number}) {
+export default function Pagination({ totalPages }: { totalPages: number }) {
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const currentPage = Number(searchParams.get('page') || 1)
@@ -20,7 +20,7 @@ export default function Pagination({totalPages}: {totalPages: number}) {
     const allPages = generatePagination(currentPage, totalPages)
 
     return (
-        <div className="w-full flex items-center px-4 py-2 justify-center gap-6">
+        <div className="w-full flex flex-col md:flex-row items-center px-2 py-2 justify-center gap-2 md:gap-6">
             <div className="flex">
                 <PaginationArrow
                     direction="left"
@@ -71,7 +71,7 @@ function PaginationNumber({
     isActive: boolean;
 }) {
     const className = clsx(
-        'flex h-10 w-10 items-center justify-center text-sm border',
+        'flex h-8 w-8 md:h-10 md:w-10 items-center justify-center text-xs md:text-sm border',
         {
             'rounded-l-md': position === 'first' || position === 'single',
             'rounded-r-md': position === 'last' || position === 'single',
@@ -100,20 +100,20 @@ function PaginationArrow({
     isDisabled?: boolean;
 }) {
     const className = clsx(
-        'flex h-10 w-10 items-center justify-center rounded-md border',
+        'flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-md border',
         {
             'pointer-events-none text-gray-300': isDisabled,
             'hover:bg-gray-100': !isDisabled,
-            'mr-2 md:mr-4': direction === 'left',
-            'ml-2 md:ml-4': direction === 'right',
+            'mr-1 md:mr-2 lg:mr-4': direction === 'left',
+            'ml-1 md:ml-2 lg:ml-4': direction === 'right',
         },
     );
 
     const icon =
         direction === 'left' ? (
-            <ArrowLeftIcon className="w-4" />
+            <ArrowLeftIcon className="w-3 md:w-4" />
         ) : (
-            <ArrowRightIcon className="w-4" />
+            <ArrowRightIcon className="w-3 md:w-4" />
         );
 
     return isDisabled ? (
@@ -126,27 +126,18 @@ function PaginationArrow({
 }
 
 const generatePagination = (currentPage: number, totalPages: number) => {
-    // If the total number of pages is 7 or less,
-    // display all pages without any ellipsis.
     if (totalPages <= 7) {
         return Array.from({ length: totalPages }, (_, i) => i + 1);
     }
 
-    // If the current page is among the first 3 pages,
-    // show the first 3, an ellipsis, and the last 2 pages.
     if (currentPage <= 3) {
         return [1, 2, 3, '...', totalPages - 1, totalPages];
     }
 
-    // If the current page is among the last 3 pages,
-    // show the first 2, an ellipsis, and the last 3 pages.
     if (currentPage >= totalPages - 2) {
         return [1, 2, '...', totalPages - 2, totalPages - 1, totalPages];
     }
 
-    // If the current page is somewhere in the middle,
-    // show the first page, an ellipsis, the current page and its neighbors,
-    // another ellipsis, and the last page.
     return [
         1,
         '...',

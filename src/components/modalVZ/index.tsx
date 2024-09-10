@@ -30,7 +30,10 @@ export default function ViewLivroModal({ isOpen, onClose, livro }: ViewModalProp
 
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Caminho da Imagem</label>
-                    <p className="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-gray-100">{livro.img}</p>
+                    <p className="mt-1 block w-full p-2 border border-gray-300 rounded-md bg-gray-100 whitespace-pre-line break-words">
+                        {livro.img}
+                    </p>
+
                 </div>
 
                 <div className="mb-4">
